@@ -1,42 +1,38 @@
-
+import { useState } from "react";
 import { FaGithub } from "react-icons/fa";
 import { SiLeetcode, SiGeeksforgeeks, SiCodechef } from "react-icons/si";
 
 function DevProfiles() {
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+
+  const cards = [
+    { icon: <FaGithub size={30} />, name: "GitHub", url: "https://github.com/Dinesh870/" },
+    { icon: <SiLeetcode size={30} />, name: "LeetCode", url: "https://leetcode.com/u/Dine_09kau/" },
+    { icon: <SiGeeksforgeeks size={30} />, name: "GeeksforGeeks", url: "https://www.geeksforgeeks.org/profile/dineshkumodgh/" },
+    { icon: <SiCodechef size={30} />, name: "CodeChef", url: "https://www.codechef.com/users/kau321/" }
+  ];
+
   return (
     <section id="devprofiles" style={styles.section}>
       <h2 style={styles.title}>Coding Profiles</h2>
 
       <div style={styles.cardContainer}>
-
-        <div style={styles.card}>
-          <FaGithub size={30} style={styles.icon} />
-          <a href="https://github.com/Dinesh870/" target="_blank" style={styles.link}>
-            GitHub
-          </a>
-        </div>
-
-        <div style={styles.card}>
-          <SiLeetcode size={30} style={styles.icon} />
-          <a href="https://leetcode.com/u/Dine_09kau/" target="_blank" style={styles.link}>
-            LeetCode
-          </a>
-        </div>
-
-        <div style={styles.card}>
-          <SiGeeksforgeeks size={30} style={styles.icon} />
-          <a href="https://www.geeksforgeeks.org/profile/dineshkumodgh/" target="_blank" style={styles.link}>
-            GeeksforGeeks
-          </a>
-        </div>
-
-        <div style={styles.card}>
-          <SiCodechef size={30} style={styles.icon} />
-          <a href="https://www.codechef.com/users/kau321/" target="_blank" style={styles.link}>
-            CodeChef
-          </a>
-        </div>
-
+        {cards.map((item, index) => (
+          <div
+            key={index}
+            style={{
+              ...styles.card,
+              ...(hoveredIndex === index ? styles.cardHover : {}),
+            }}
+            onMouseEnter={() => setHoveredIndex(index)}
+            onMouseLeave={() => setHoveredIndex(null)}
+          >
+            {item.icon}
+            <a href={item.url} target="_blank" rel="noreferrer" style={styles.link}>
+              {item.name}
+            </a>
+          </div>
+        ))}
       </div>
     </section>
   );
@@ -44,15 +40,14 @@ function DevProfiles() {
 
 const styles = {
   section: {
-    height: "40vh",
+    minHeight: "40vh",
     padding: "80px 20px",
     background: "#F1F5F9",
     textAlign: "center",
-    boxShadow: "0 5px 20px rgba(0,0,0,0.1)"
+    boxShadow: "0 5px 20px rgba(0,0,0,0.1)",
   },
 
   title: {
-    fontSize: "32px",
     marginBottom: "35px",
   },
 
@@ -73,6 +68,11 @@ const styles = {
     boxShadow: "0 6px 16px rgba(0,0,0,0.1)",
     transition: "0.3s",
     cursor: "pointer",
+  },
+
+  cardHover: {
+    boxShadow: "0 10px 20px rgba(80, 104, 163, 0.31)",
+    transform: "translateY(-1px)",
   },
 
   icon: {

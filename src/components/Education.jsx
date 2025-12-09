@@ -1,4 +1,3 @@
-import React from "react";
 
 function Education() {
   const education = [
@@ -67,7 +66,6 @@ const styles = {
     boxShadow: "0 5px 20px rgba(0,0,0,0.2)"
   },
   heading: {
-    fontSize: "35px",
     marginBottom: "60px",
     fontWeight: "bold",
     borderBottom: "3px solid #4f46e5",

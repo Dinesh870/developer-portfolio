@@ -1,7 +1,15 @@
-import { FaEnvelope, FaLinkedin, FaPhoneAlt, FaGithub } from "react-icons/fa";
-import { SiLeetcode, SiGeeksforgeeks } from "react-icons/si";
+import React, { useState } from "react";
+import { FaEnvelope, FaLinkedin } from "react-icons/fa";
 
 function Contact() {
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+
+  const contactCards = [
+    { icon: <FaEnvelope size={30} />, name: "Email", url: "mailto:singhdinesh87796@gmail.com" },
+    { icon: <FaLinkedin size={30} />, name: "LinkedIn", url: "https://www.linkedin.com/in/dinesh-kumar-singh-17546322b/" }
+  ];
+
+
   return (
     <section id="contact" style={styles.section}>
       <h2 style={styles.title}>Get in Touch</h2>
@@ -12,23 +20,32 @@ function Contact() {
 
       <div style={styles.cardContainer}>
 
-        {/* Email */}
-        <div style={styles.card}>
-          <FaEnvelope size={28} style={styles.icon} />
-          <a href="mailto:singhdinesh87796@gmail.com" style={styles.link}>Email</a>
+        <div style={styles.cardContainer}>
+          {contactCards.map((item, index) => (
+            <div
+              key={index}
+              style={{
+                ...styles.card,
+                ...(hoveredIndex === index ? styles.cardHover : {}),
+              }}
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
+            >
+              {React.cloneElement(item.icon, {
+                style: styles.icon
+              })}
+              <a
+                href={item.url}
+                target={item.url.startsWith("http") ? "_blank" : undefined}
+                rel="noreferrer"
+                style={styles.link}
+              >
+                {item.name}
+              </a>
+            </div>
+          ))}
         </div>
 
-        {/* LinkedIn */}
-        <div style={styles.card}>
-          <FaLinkedin size={28} style={styles.icon} />
-          <a
-            href="https://www.linkedin.com/in/dinesh-kumar-singh-17546322b/"
-            target="_blank"
-            style={styles.link}
-          >
-            LinkedIn
-          </a>
-        </div>
 
       </div>
     </section>
@@ -44,7 +61,6 @@ const styles = {
   },
 
   title: {
-    fontSize: "36px",
     marginBottom: "10px",
   },
 
@@ -71,6 +87,11 @@ const styles = {
     gap: "12px",
     transition: "0.3s",
     cursor: "pointer",
+  },
+
+  cardHover: {
+    boxShadow: "0 12px 22px rgba(80, 104, 163, 0.37)",
+    transform: "translateY(-1px)",
   },
 
   icon: {

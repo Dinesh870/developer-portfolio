@@ -5,12 +5,6 @@ function Footer() {
       <p style={styles.text}>
         © {new Date().getFullYear()} Dinesh Kumar Singh. All Rights Reserved.
       </p>
-
-      <div style={styles.links}>
-        <a href="#home" style={styles.link}>Home</a>
-        <a href="#projects" style={styles.link}>Projects</a>
-        <a href="#contact" style={styles.link}>Contact</a>
-      </div>
     </footer>
   );
 }
@@ -27,6 +21,7 @@ const styles = {
   text: {
     marginBottom: "10px",
     fontSize: "15px",
+    color: "#fff",
   },
 
   links: {

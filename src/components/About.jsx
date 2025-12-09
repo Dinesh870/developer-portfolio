@@ -73,21 +73,17 @@ const styles = {
   section: {
     display: 'flex',
     justifyContent: 'center',
-    background: "#F1F5F9"
-    // padding: '40px 40px 10px 0px',
+    background: "#F8FAFC"
   },
 
   container: {
     width: '100%',
-    // maxWidth: '1100px',
-    // background: '#ffffff',
     borderRadius: '12px',
     boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)',
     padding: '30px 25px 40px 25px',
   },
 
   heading: {
-    fontSize: '35px',
     textAlign: 'center',
     margin: '0 auto 20px auto',
     fontWeight: 'bold',

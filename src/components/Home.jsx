@@ -47,7 +47,7 @@ function Home() {
   };
 
   return (
-    <section id="home" style={styles.hero}>
+    <section id="home" style={styles.home}>
       <h1 style={styles.title}>
         Hello, I'm <span style={styles.highlight}>Dinesh</span>
       </h1>
@@ -85,7 +85,7 @@ function Home() {
 }
 
 const styles = {
-  hero: {
+  home: {
     height: "85vh",
     display: "flex",
     flexDirection: "column",

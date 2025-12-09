@@ -90,11 +90,10 @@ function Skills() {
 const styles = {
   section: {
     padding: '60px 20px',
-    background: "#E0E7FF",
+    background: "#EEF2FF",
     textAlign: 'center',
   },
   heading: {
-    fontSize: '35px',
     marginBottom: '40px',
     fontWeight: 'bold',
     borderBottom: '3px solid #4f46e5',

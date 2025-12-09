@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-scroll";
+import Logo from "./Logo";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -46,7 +47,9 @@ function Navbar() {
 
   return (
     <nav style={navStyle}>
-      <h2 style={styles.logo}>My Portfolio</h2>
+      <h2 style={styles.logo}>
+        <Logo/>
+      </h2>
 
       {/* Mobile Hamburger Button */}
       <button style={menuButtonStyle} onClick={() => setIsOpen(!isOpen)}>
